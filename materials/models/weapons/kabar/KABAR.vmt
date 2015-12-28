@@ -1,0 +1,25 @@
+"VertexLitGeneric"
+{
+	"$basetexture" 				"models\weapons\kabar\KABAR"
+	"$bumpmap" 					"models\weapons\kabar\KABAR_N"
+	"$halflambert" 				"1"
+	
+	"$phong" 					"1"
+	"$phongboost" 				"1"
+	"$phongalbedoboost" 		"100"
+	"$normalmapalphaphongmask"	"1"
+	"$phongexponenttexture" 	"models\weapons\kabar\KABAR_G"
+	"$phongfresnelranges" 		"[0.1 0.5 1]"
+	"$phongalbedotint"			"1"
+	
+	"$normalmapalphaenvmapmask" "1"
+	"$envmap" 					"env_cubemap"
+	"$envmaptint" 				"[ 0.1 0.1 0.1 ]"
+	"$envmapfresnel"			"1"
+	"$envmapFresnelMinMaxExp"	"[0 5 .4]"
+	
+	"$rimlight" 				"1"
+	"$rimlightexponent" 		"100"	
+	"$rimlightboost"			"0.5"
+	"$rimmask" 					"1"
+}
