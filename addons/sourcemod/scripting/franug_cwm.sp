@@ -2,7 +2,7 @@
 #include <sdktools>
 #include <fpvm_interface>
 
-#define DATA "1.0"
+#define DATA "1.1"
 
 char sConfig[PLATFORM_MAX_PATH];
 Handle kv;
@@ -152,17 +152,24 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 			KvJumpToKey(kv, item);
 			
 			char cwmodel[PLATFORM_MAX_PATH];
-			KvGetString(kv, "model", cwmodel, PLATFORM_MAX_PATH);
-			char flag[8];
-			KvGetString(kv, "flag", flag, 8, "");
-			if(HasPermission(client, flag))
+			KvGetString(kv, "model", cwmodel, PLATFORM_MAX_PATH, "none");
+			if(StrEqual(cwmodel, "none"))
 			{
-				FPVMI_AddViewModelToClient(client, client_w[client], PrecacheModel(cwmodel));
-				PrintToChat(client, "Now you have a custom weapon model in %s", client_w[client]);
+				PrintToChat(client, "Invalid configuration for this model");
 			}
 			else
 			{
-				PrintToChat(client, "You dont have access to use this weapon model");
+				char flag[8];
+				KvGetString(kv, "flag", flag, 8, "");
+				if(HasPermission(client, flag))
+				{
+					FPVMI_AddViewModelToClient(client, client_w[client], PrecacheModel(cwmodel));
+					PrintToChat(client, "Now you have a custom weapon model in %s", client_w[client]);
+				}
+				else
+				{
+					PrintToChat(client, "You dont have access to use this weapon model");
+				}
 			}
 			KvRewind(kv);
 		}
