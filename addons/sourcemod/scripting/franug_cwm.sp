@@ -60,7 +60,7 @@ Downloads()
 			}
 			
 			TrimString(line);
-			if( strlen(line) > 0 && (FileExists(line) || FileExists(line, true)))
+			if( strlen(line) > 0 && FileExists(line))
 			{
 				AddFileToDownloadsTable(line);
 			}
