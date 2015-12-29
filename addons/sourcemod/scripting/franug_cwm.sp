@@ -1,11 +1,15 @@
 #include <sourcemod>
 #include <sdktools>
 #include <fpvm_interface>
+#include <multicolors>
 
 #define DATA "1.1"
 
 char sConfig[PLATFORM_MAX_PATH];
 Handle kv;
+
+//Spawn Message Cvar
+new Handle:cvarcwmspawnmsg = INVALID_HANDLE;
 
 char client_w[MAXPLAYERS+1];
 
@@ -22,13 +26,39 @@ public OnPluginStart()
 {
 	CreateConVar("sm_customweaponsmenu_version", DATA, "plugin info", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY|FCVAR_DONTRECORD);
 	
+	//Spawn Messege
+	cvarcwmspawnmsg = CreateConVar("sm_customweaponsmenu_spawnmsg", "1", "Enable or Disable Spawnmessages");
+	
 	RegConsoleCmd("sm_cw", Command_cw);
+	
+	LoadTranslations("franug_cwm.phrases");
+	LoadTranslations("common.phrases");
+	
+	HookEvent("player_spawn", PlayerSpawn);
 }
 
 public OnMapStart()
 {
 	RefreshKV();
 	Downloads();
+}
+
+//Show Spawn Messege
+public Action:PlayerSpawn(Handle:event, const String:name[], bool:dontBroadcast)
+{
+	// Get Client
+	new client = GetClientOfUserId(GetEventInt(event, "userid"));
+	
+	if (GetClientTeam(client) == 1 && !IsPlayerAlive(client))
+	{
+	return;
+	}
+	
+	// Check Convar & Spawnmsg
+	if (GetConVarInt(cvarcwmspawnmsg) == 1)
+	{	
+		CPrintToChat(client," \x04[CW]\x01 %t","spawnmsg");
+	}
 }
 
 public void RefreshKV()
@@ -78,7 +108,7 @@ public Action Command_cw(int client, int args)
 {	
 	char temp[64];
 	Menu menu_cw = new Menu(Menu_Handler);
-	SetMenuTitle(menu_cw, "Select a weapon");
+	SetMenuTitle(menu_cw, "%t", "Select a weapon");
 	if(KvGotoFirstSubKey(kv))
 	{
 		do
@@ -109,7 +139,7 @@ public int Menu_Handler(Menu menu, MenuAction action, int client, int param2)
 			
 			char temp[64];
 			Menu menu_cw = new Menu(Menu_Handler2);
-			SetMenuTitle(menu_cw, "Select a custom view model");
+			SetMenuTitle(menu_cw, "%t", "Select a custom view model");
 			AddMenuItem(menu_cw, "default", "Default model");
 			if(KvGotoFirstSubKey(kv))
 			{
@@ -145,7 +175,7 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 			if(StrEqual(item, "default"))
 			{
 				FPVMI_RemoveViewModelToClient(client, client_w[client]);
-				PrintToChat(client, "Now you have the default weapon model");
+				CPrintToChat(client, " \x04[CW]\x01 %t","Now you have the default weapon model");
 				return;
 			}
 			KvJumpToKey(kv, client_w[client]);
@@ -155,7 +185,7 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 			KvGetString(kv, "model", cwmodel, PLATFORM_MAX_PATH, "none");
 			if(StrEqual(cwmodel, "none"))
 			{
-				PrintToChat(client, "Invalid configuration for this model");
+				CPrintToChat(client, " \x04[CW]\x01 %t","Invalid configuration for this model");
 			}
 			else
 			{
@@ -164,11 +194,11 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 				if(HasPermission(client, flag))
 				{
 					FPVMI_AddViewModelToClient(client, client_w[client], PrecacheModel(cwmodel));
-					PrintToChat(client, "Now you have a custom weapon model in %s", client_w[client]);
+					CPrintToChat(client, " \x04[CW]\x01 %t","Now you have a custom weapon model in", client_w[client]);
 				}
 				else
 				{
-					PrintToChat(client, "You dont have access to use this weapon model");
+					CPrintToChat(client, " \x04[CW]\x01 %t","You dont have access to use this weapon model");
 				}
 			}
 			KvRewind(kv);
