@@ -1,0 +1,45 @@
+"Phrases"
+{
+	"Select a weapon"
+	{		
+		"en"		"Select a weapon"
+		"zho"		"選擇武器"
+	}
+	
+	"Select a custom view model"
+	{		
+		"en"		"Select a custom view model"
+		"zho"		"選擇自訂模組"
+	}
+	
+	"Now you have the default weapon model"
+	{		
+		"en"		"Now you have the {purple}default weapon model"
+		"zho"		"你已選擇 {purple} 預設模組"
+	}
+	
+	"Invalid configuration for this model"
+	{		
+		"en"		"Invalid configuration for this model"
+		"zho"		"找不到這個模組的設定"
+	}
+	
+	"Now you have a custom weapon model in"
+	{		
+		"#format"	"{1:s}"
+		"en"		"Now you have a {purple}custom weapon model {default}in your {purple}{1}"
+		"zho"		"你已選擇 {purple}自訂模組 {default}在你的 {purple} {1}"
+	}
+	
+	"You dont have access to use this weapon model"
+	{		
+		"en"		"You dont have access to use this weapon model"
+		"zho"		"你沒有使用這個模組的權限"
+	}
+	
+	"spawnmsg"
+	{		
+		"en"		"This server is using Custom Weapon Models! Type {purple}!cw {default}to chooser your model!"
+		"zho"		"輸入 {purple}!cw {default}選擇自訂模組!"
+	}
+}
