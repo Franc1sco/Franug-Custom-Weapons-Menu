@@ -3,7 +3,7 @@
 #include <fpvm_interface>
 #include <multicolors>
 
-#define DATA "1.1"
+#define DATA "1.2"
 
 char sConfig[PLATFORM_MAX_PATH];
 Handle kv;
