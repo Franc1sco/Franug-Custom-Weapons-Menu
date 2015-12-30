@@ -1,5 +1,14 @@
 "CustomModels"
 {
+	"weapon_awp"
+	{
+		"AWP anime"
+		{
+			"model" "models/weapons/v_animeawp.mdl"
+			"worldmodel" "models/weapons/w_animeawp.mdl"
+			
+		}
+	}
 	"weapon_knife"
 	{
 		"Tri-Dagger Black"

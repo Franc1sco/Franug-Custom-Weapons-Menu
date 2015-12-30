@@ -1,3 +1,18 @@
+// AWP Anime
+
+materials/models/weapons/v_models/animeawp/awp.vmt
+materials/models/weapons/v_models/animeawp/awp.vtf
+materials/models/weapons/v_models/animeawp/awp_exponent.vtf
+
+models/weapons/v_animeawp.dx90.vtx
+models/weapons/v_animeawp.mdl
+models/weapons/v_animeawp.vvd
+
+models/weapons/w_animeawp.dx90.vtx
+models/weapons/w_animeawp.mdl
+models/weapons/w_animeawp.vvd
+
+
 //Tridagger
 models/weapons/v_knife_tridagger_v2.dx90.vtx
 models/weapons/v_knife_tridagger_v2.mdl
