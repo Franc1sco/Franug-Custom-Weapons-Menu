@@ -3,7 +3,7 @@
 #include <fpvm_interface>
 #include <multicolors>
 
-#define DATA "1.2"
+#define DATA "2.0"
 
 char sConfig[PLATFORM_MAX_PATH];
 Handle kv;
@@ -174,16 +174,17 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 			GetMenuItem(menu, param2, item, sizeof(item));
 			if(StrEqual(item, "default"))
 			{
-				FPVMI_RemoveViewModelToClient(client, client_w[client]);
+				FPVMI_SetClientModel(client, client_w[client], -1, -1);
 				CPrintToChat(client, " \x04[CW]\x01 %t","Now you have the default weapon model");
 				return;
 			}
 			KvJumpToKey(kv, client_w[client]);
 			KvJumpToKey(kv, item);
 			
-			char cwmodel[PLATFORM_MAX_PATH];
+			char cwmodel[PLATFORM_MAX_PATH], cwmodel2[PLATFORM_MAX_PATH];
 			KvGetString(kv, "model", cwmodel, PLATFORM_MAX_PATH, "none");
-			if(StrEqual(cwmodel, "none"))
+			KvGetString(kv, "worldmodel", cwmodel2, PLATFORM_MAX_PATH, "none");
+			if(StrEqual(cwmodel, "none") && StrEqual(cwmodel2, "none"))
 			{
 				CPrintToChat(client, " \x04[CW]\x01 %t","Invalid configuration for this model");
 			}
@@ -193,7 +194,7 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 				KvGetString(kv, "flag", flag, 8, "");
 				if(HasPermission(client, flag))
 				{
-					FPVMI_AddViewModelToClient(client, client_w[client], PrecacheModel(cwmodel));
+					FPVMI_SetClientModel(client, client_w[client], !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1);
 					CPrintToChat(client, " \x04[CW]\x01 %t","Now you have a custom weapon model in", client_w[client]);
 				}
 				else
