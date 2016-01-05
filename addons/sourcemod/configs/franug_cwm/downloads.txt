@@ -4,6 +4,10 @@ materials/models/weapons/v_models/animeawp/awp.vmt
 materials/models/weapons/v_models/animeawp/awp.vtf
 materials/models/weapons/v_models/animeawp/awp_exponent.vtf
 
+materials/models/weapons/w_models/w_animeawp/awp.vmt
+materials/models/weapons/w_models/w_animeawp/awp.vtf
+materials/models/weapons/w_models/w_animeawp/awp_exponent.vtf
+
 models/weapons/v_animeawp.dx90.vtx
 models/weapons/v_animeawp.mdl
 models/weapons/v_animeawp.vvd
