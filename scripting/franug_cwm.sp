@@ -3,7 +3,7 @@
 #include <fpvm_interface>
 #include <multicolors>
 
-#define DATA "2.1.1"
+#define DATA "2.1.2"
 
 char sConfig[PLATFORM_MAX_PATH];
 Handle kv, db, array_weapons;
@@ -219,6 +219,7 @@ public int Menu_Handler(Menu menu, MenuAction action, int client, int param2)
 				} while (KvGotoNextKey(kv));
 			}
 			KvRewind(kv);
+			SetMenuExitBackButton(menu_weapons, true);
 			DisplayMenu(menu_weapons, client, 0);
 		}
 
@@ -272,6 +273,13 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 				Command_cw(client, 0);
 			}
 			KvRewind(kv);
+		}
+		case MenuAction_Cancel:
+		{
+			if(param2==MenuCancel_ExitBack)
+			{
+				Command_cw(client, 0);
+			}
 		}
 		case MenuAction_End:
 		{
