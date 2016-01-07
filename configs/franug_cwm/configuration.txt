@@ -1,0 +1,46 @@
+"CustomModels"
+{
+	"weapon_awp"
+	{
+		"AWP anime"
+		{
+			"model" "models/weaponf/v_animeawp.mdl"
+			"worldmodel" "models/weaponf/w_animeawp.mdl"
+			
+		}
+	}
+	"weapon_knife"
+	{
+		"Tri-Dagger Black"
+		{
+			"model" "models/weaponf/v_knife_tridagger_v2.mdl"
+		}
+		"Tri-Dagger Steel"
+		{
+			"model" "models/weaponf/v_knife_tridagger_steel.mdl"
+		}
+		"Ka-Bar"
+		{
+			"model" "models/weaponf/v_knife_kabar_v2.mdl"
+		}
+		"Reaper Dagger"
+		{
+			"model" "models/weaponf/v_knife_reaper.mdl"
+		}
+		"CSS Knife"
+		{
+			"model" "models/weaponf/crashz.mdl"
+		}
+		"Bear Grylls Knife"
+		{
+			"model" "models/weaponf/v_knife_ultimate.mdl"
+		}
+	}
+	"weapon_elite"
+	{
+		"Dual Infinity"
+		{
+			"model" "models/weaponf/v_pist_dualinfinity.mdl"
+		}
+	}
+}
