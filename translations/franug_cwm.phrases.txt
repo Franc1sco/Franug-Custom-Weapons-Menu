@@ -49,4 +49,9 @@
 		"es"		"Este servidor esta usando Modelos de Armas Personalizados! Escribe {purple}!cw {default}para elegir tu modelo!"
 		"zho"		"輸入 {purple}!cw {default}選擇自訂模組!"
 	}
+	"Custom Weapons Menu configuration reloaded"
+	{
+		"en"	"Custom Weapons Menu configuration reloaded"
+		"es"	"Custom Weapons Menu configuracion recargada"
+	}
 }

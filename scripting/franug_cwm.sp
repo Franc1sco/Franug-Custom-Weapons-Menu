@@ -3,7 +3,7 @@
 #include <fpvm_interface>
 #include <multicolors>
 
-#define DATA "2.1"
+#define DATA "2.1.1"
 
 char sConfig[PLATFORM_MAX_PATH];
 Handle kv, db, array_weapons;
@@ -37,6 +37,7 @@ public OnPluginStart()
 	cvarcwmspawnmsg = CreateConVar("sm_customweaponsmenu_spawnmsg", "1", "Enable or Disable Spawnmessages");
 	
 	RegConsoleCmd("sm_cw", Command_cw);
+	RegAdminCmd("sm_reloadcw", ReloadSkins, ADMFLAG_ROOT);
 	
 	LoadTranslations("franug_cwm.phrases");
 	LoadTranslations("common.phrases");
@@ -45,6 +46,15 @@ public OnPluginStart()
 	
 	RefreshKV();
 	ComprobarDB(true);
+}
+
+public Action:ReloadSkins(client, args)
+{	
+	RefreshKV();
+	ComprobarDB(true);
+	CReplyToCommand(client, "\x04[CW]\x01 %T","Custom Weapons Menu configuration reloaded", client);
+	
+	return Plugin_Handled;
 }
 
 ComprobarDB(bool:reconnect = false, String:basedatos[64] = "customweapons")
@@ -110,7 +120,6 @@ public OnSqlConnect(Handle:owner, Handle:hndl, const String:error[], any:data)
 
 public OnMapStart()
 {
-	RefreshKV();
 	Downloads();
 	
 }
