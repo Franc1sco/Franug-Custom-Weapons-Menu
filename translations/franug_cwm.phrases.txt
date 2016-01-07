@@ -1,26 +1,30 @@
-"Phrases"
+﻿"Phrases"
 {
 	"Select a weapon"
 	{		
 		"en"		"Select a weapon"
+		"es"		"Selecciona un arma"
 		"zho"		"選擇武器"
 	}
 	
 	"Select a custom view model"
 	{		
-		"en"		"Select a custom view model"
+		"en"		"Select a custom model"
+		"es"		"Selecciona un modelo personalizado"
 		"zho"		"選擇自訂模組"
 	}
 	
 	"Now you have the default weapon model"
 	{		
 		"en"		"Now you have the {purple}default weapon model"
+		"es"		"Ahora tu tienes {purple}el modelo por defecto"
 		"zho"		"你已選擇 {purple} 預設模組"
 	}
 	
 	"Invalid configuration for this model"
 	{		
 		"en"		"Invalid configuration for this model"
+		"es"		"Configuracion incorrecta para este modelo"
 		"zho"		"找不到這個模組的設定"
 	}
 	
@@ -28,18 +32,21 @@
 	{		
 		"#format"	"{1:s}"
 		"en"		"Now you have a {purple}custom weapon model {default}in your {purple}{1}"
+		"es"		"Ahora tu tienes un {purple}modelo personalizado {default}en tu {purple}{1}"
 		"zho"		"你已選擇 {purple}自訂模組 {default}在你的 {purple} {1}"
 	}
 	
 	"You dont have access to use this weapon model"
 	{		
 		"en"		"You dont have access to use this weapon model"
+		"es"		"No tienes acceso para usar este model"
 		"zho"		"你沒有使用這個模組的權限"
 	}
 	
 	"spawnmsg"
 	{		
 		"en"		"This server is using Custom Weapon Models! Type {purple}!cw {default}to chooser your model!"
+		"es"		"Este servidor esta usando Modelos de Armas Personalizados! Escribe {purple}!cw {default}para elegir tu modelo!"
 		"zho"		"輸入 {purple}!cw {default}選擇自訂模組!"
 	}
 }
