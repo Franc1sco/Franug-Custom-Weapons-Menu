@@ -53,5 +53,6 @@
 	{
 		"en"	"Custom Weapons Menu configuration reloaded"
 		"es"	"Custom Weapons Menu configuracion recargada"
+		"zho"	"已重新讀取自訂武器設定"
 	}
 }
