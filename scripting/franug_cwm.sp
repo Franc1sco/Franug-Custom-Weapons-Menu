@@ -3,7 +3,7 @@
 #include <fpvm_interface>
 #include <multicolors>
 
-#define DATA "2.1.2"
+#define DATA "2.1.3"
 
 char sConfig[PLATFORM_MAX_PATH];
 Handle kv, db, array_weapons;
@@ -540,7 +540,11 @@ public tbasico6(Handle:owner, Handle:hndl, const String:error[], any:data)
 	KvGetString(kv, "model", cwmodel, PLATFORM_MAX_PATH, "none");
 	KvGetString(kv, "worldmodel", cwmodel2, PLATFORM_MAX_PATH, "none");
 	
-	FPVMI_SetClientModel(client, items, !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1);
+	char flag[8];
+	KvGetString(kv, "flag", flag, 8, "");
+	
+	if(HasPermission(client, flag)) FPVMI_SetClientModel(client, items, !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1);
+	
 	KvRewind(kv);
 }
 
