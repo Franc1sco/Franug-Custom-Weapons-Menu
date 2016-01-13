@@ -3,7 +3,7 @@
 #include <fpvm_interface>
 #include <multicolors>
 
-#define DATA "2.1.3"
+#define DATA "3.0"
 
 char sConfig[PLATFORM_MAX_PATH];
 Handle kv, db, array_weapons;
@@ -246,10 +246,11 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 			KvJumpToKey(kv, client_w[client]);
 			KvJumpToKey(kv, item);
 			
-			char cwmodel[PLATFORM_MAX_PATH], cwmodel2[PLATFORM_MAX_PATH];
+			char cwmodel[PLATFORM_MAX_PATH], cwmodel2[PLATFORM_MAX_PATH], cwmodel3[PLATFORM_MAX_PATH];
 			KvGetString(kv, "model", cwmodel, PLATFORM_MAX_PATH, "none");
 			KvGetString(kv, "worldmodel", cwmodel2, PLATFORM_MAX_PATH, "none");
-			if(StrEqual(cwmodel, "none") && StrEqual(cwmodel2, "none"))
+			KvGetString(kv, "dropmodel", cwmodel3, PLATFORM_MAX_PATH, "none");
+			if(StrEqual(cwmodel, "none") && StrEqual(cwmodel2, "none") && StrEqual(cwmodel3, "none"))
 			{
 				CPrintToChat(client, " \x04[CW]\x01 %T","Invalid configuration for this model", client);
 			}
@@ -259,7 +260,7 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 				KvGetString(kv, "flag", flag, 8, "");
 				if(HasPermission(client, flag))
 				{
-					FPVMI_SetClientModel(client, client_w[client], !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1);
+					FPVMI_SetClientModel(client, client_w[client], !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1, cwmodel3);
 					CPrintToChat(client, " \x04[CW]\x01 %T","Now you have a custom weapon model in",client, client_w[client]);
 					
 					
@@ -536,14 +537,15 @@ public tbasico6(Handle:owner, Handle:hndl, const String:error[], any:data)
 	KvJumpToKey(kv, items);
 	KvJumpToKey(kv, item);
 
-	char cwmodel[PLATFORM_MAX_PATH], cwmodel2[PLATFORM_MAX_PATH];
+	char cwmodel[PLATFORM_MAX_PATH], cwmodel2[PLATFORM_MAX_PATH], cwmodel3[PLATFORM_MAX_PATH];
 	KvGetString(kv, "model", cwmodel, PLATFORM_MAX_PATH, "none");
 	KvGetString(kv, "worldmodel", cwmodel2, PLATFORM_MAX_PATH, "none");
+	KvGetString(kv, "dropmodel", cwmodel3, PLATFORM_MAX_PATH, "none");
 	
 	char flag[8];
 	KvGetString(kv, "flag", flag, 8, "");
 	
-	if(HasPermission(client, flag)) FPVMI_SetClientModel(client, items, !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1);
+	if(HasPermission(client, flag)) FPVMI_SetClientModel(client, items, !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1, cwmodel3);
 	
 	KvRewind(kv);
 }
