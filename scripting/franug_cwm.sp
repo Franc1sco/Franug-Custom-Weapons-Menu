@@ -3,7 +3,7 @@
 #include <fpvm_interface>
 #include <multicolors>
 
-#define DATA "3.0"
+#define DATA "3.1"
 
 char sConfig[PLATFORM_MAX_PATH];
 Handle kv, db, array_weapons;
@@ -375,8 +375,8 @@ public T_CheckSteamID(Handle:owner, Handle:hndl, const String:error[], any:data)
 	for(new i=0;i<GetArraySize(array_weapons);++i)
 	{
 		GetArrayString(array_weapons, i, items, 64);
-		Format(sql_buffer, sizeof(sql_buffer), "SELECT id,saved FROM %s WHERE id = '%i'", items, client_id[client]);
-		SQL_TQuery(db, tbasico6, sql_buffer, i);
+		Format(sql_buffer, sizeof(sql_buffer), "SELECT saved FROM %s WHERE id = '%i'", items, client_id[client]);
+		SQL_TQuery(db, tbasico6, sql_buffer, (GetClientUserId(client)*10000)+i);
 	}
 	
 	//PrintToServer("pasado con id %i", client_id[client]);
@@ -510,29 +510,28 @@ public tbasico6(Handle:owner, Handle:hndl, const String:error[], any:data)
 		return;
 	}
 	
-	if (!SQL_GetRowCount(hndl) || !SQL_FetchRow(hndl)) 
+	int userid = data/10000;
+	int weapon = (data-(userid*10000));
+	int client = GetClientOfUserId(userid);
+	//PrintToServer("valor %i y %i del total de %i",weapon, client, data);
+	
+	/* Make sure the client didn't disconnect while the thread was running */
+	if (client == 0)
 	{
 		return;
 	}
-	//PrintToServer("pasado");
-	bool found = false;
-	int client;
-	int id = SQL_FetchInt(hndl, 0);
-	for(new i = 1; i <= MaxClients; i++)
-	{
-		if(id == client_id[i])
-		{
-			found = true;
-			client = i;
-			break;
-		}
-	}
-	
-	if(!found) return;
 	
 	char items[64], item[64];
-	GetArrayString(array_weapons, data, items, 64);
-	SQL_FetchString(hndl, 1, item, 64);
+	GetArrayString(array_weapons, weapon, items, 64);
+	if (!SQL_GetRowCount(hndl) || !SQL_FetchRow(hndl)) 
+	{
+		
+		Format(sql_buffer, sizeof(sql_buffer), "INSERT INTO %s(id, saved) VALUES('%i', 'default');", items,client_id[client]);
+		SQL_TQuery(db, tbasico, sql_buffer);
+		return;
+	}
+	
+	SQL_FetchString(hndl, 0, item, 64);
 	//PrintToServer("salto a %s y despues a %s", items, item);
 	KvJumpToKey(kv, items);
 	KvJumpToKey(kv, item);
