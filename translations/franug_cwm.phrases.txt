@@ -5,6 +5,7 @@
 		"en"		"Select a weapon"
 		"es"		"Selecciona un arma"
 		"zho"		"選擇武器"
+		"da"		"Vælg et våben"
 	}
 	
 	"Select a custom view model"
@@ -12,6 +13,7 @@
 		"en"		"Select a custom model"
 		"es"		"Selecciona un modelo personalizado"
 		"zho"		"選擇自訂模組"
+		"da"		"Vælg en custom model"
 	}
 	
 	"Now you have the default weapon model"
@@ -19,6 +21,7 @@
 		"en"		"Now you have the {purple}default weapon model"
 		"es"		"Ahora tu tienes {purple}el modelo por defecto"
 		"zho"		"你已選擇 {purple} 預設模組"
+		"da"		"Du har nu {purple}standard våben model"
 	}
 	
 	"Invalid configuration for this model"
@@ -26,6 +29,7 @@
 		"en"		"Invalid configuration for this model"
 		"es"		"Configuracion incorrecta para este modelo"
 		"zho"		"找不到這個模組的設定"
+		"da"		"Invalid konfiguration af denne model"
 	}
 	
 	"Now you have a custom weapon model in"
@@ -34,6 +38,7 @@
 		"en"		"Now you have a {purple}custom weapon model {default}in your {purple}{1}"
 		"es"		"Ahora tu tienes un {purple}modelo personalizado {default}en tu {purple}{1}"
 		"zho"		"你已選擇 {purple}自訂模組 {default}在你的 {purple} {1}"
+		"da"		"Du har du en {purple} custom våben model {default}i din {purple}{1}"
 	}
 	
 	"You dont have access to use this weapon model"
@@ -41,18 +46,21 @@
 		"en"		"You dont have access to use this weapon model"
 		"es"		"No tienes acceso para usar este model"
 		"zho"		"你沒有使用這個模組的權限"
+		"da"		"Du har ikke adgang til denne våben model"
 	}
 	
 	"spawnmsg"
 	{		
-		"en"		"This server is using Custom Weapon Models! Type {purple}!cw {default}to chooser your model!"
+		"en"		"This server is using Custom Weapon Models! Type {purple}!cw {default}to choose your model!"
 		"es"		"Este servidor esta usando Modelos de Armas Personalizados! Escribe {purple}!cw {default}para elegir tu modelo!"
 		"zho"		"輸入 {purple}!cw {default}選擇自訂模組!"
+		"da"		"Denne server benytter sig af Custom Weapon Models! Skriv {purple}!cw {default} for at vælge en model!"
 	}
 	"Custom Weapons Menu configuration reloaded"
 	{
 		"en"	"Custom Weapons Menu configuration reloaded"
 		"es"	"Custom Weapons Menu configuracion recargada"
 		"zho"	"已重新讀取自訂武器設定"
+		"da"	"Custom Weapons Menu konfiguration er genstartet"
 	}
 }
