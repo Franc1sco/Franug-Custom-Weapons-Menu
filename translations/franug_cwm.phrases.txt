@@ -67,7 +67,7 @@
 	{
 		"en"	"Custom Weapons Menu configuration reloaded"
 		"es"	"Custom Weapons Menu configuracion recargada"
-		"ru"	"Конфигурация пользовательского оружия перезагружена"
+		"ru"	"Конфигурация меню пользов-ского оружия перезагружена"
 		"zho"	"已重新讀取自訂武器設定"
 		"da"	"Custom Weapons Menu konfiguration er genstartet"
 	}
