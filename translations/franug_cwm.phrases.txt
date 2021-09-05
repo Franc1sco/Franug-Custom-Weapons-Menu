@@ -4,6 +4,7 @@
 	{		
 		"en"		"Select a weapon"
 		"es"		"Selecciona un arma"
+		"ru"		"Выберите оружие"
 		"zho"		"選擇武器"
 		"da"		"Vælg et våben"
 	}
@@ -12,6 +13,7 @@
 	{		
 		"en"		"Select a custom model"
 		"es"		"Selecciona un modelo personalizado"
+		"ru"		"Выберите пользовательскую модель"
 		"zho"		"選擇自訂模組"
 		"da"		"Vælg en custom model"
 	}
@@ -20,6 +22,7 @@
 	{		
 		"en"		"Now you have the {purple}default weapon model"
 		"es"		"Ahora tu tienes {purple}el modelo por defecto"
+		"ru"		"Теперь у вас {purple}модель оружия по умолчанию"
 		"zho"		"你已選擇 {purple} 預設模組"
 		"da"		"Du har nu {purple}standard våben model"
 	}
@@ -28,6 +31,7 @@
 	{		
 		"en"		"Invalid configuration for this model"
 		"es"		"Configuracion incorrecta para este modelo"
+		"ru"		"Неверная конфигурация для данной модели"
 		"zho"		"找不到這個模組的設定"
 		"da"		"Invalid konfiguration af denne model"
 	}
@@ -37,6 +41,7 @@
 		"#format"	"{1:s}"
 		"en"		"Now you have a {purple}custom weapon model {default}in your {purple}{1}"
 		"es"		"Ahora tu tienes un {purple}modelo personalizado {default}en tu {purple}{1}"
+		"ru"		"Теперь у вас {purple}пользовательская модель оружия {default}для {purple}{1}"
 		"zho"		"你已選擇 {purple}自訂模組 {default}在你的 {purple} {1}"
 		"da"		"Du har du en {purple} custom våben model {default}i din {purple}{1}"
 	}
@@ -45,6 +50,7 @@
 	{		
 		"en"		"You dont have access to use this weapon model"
 		"es"		"No tienes acceso para usar este model"
+		"ru"		"У вас нет доступа к использованию этой модели оружия"
 		"zho"		"你沒有使用這個模組的權限"
 		"da"		"Du har ikke adgang til denne våben model"
 	}
@@ -53,6 +59,7 @@
 	{		
 		"en"		"This server is using Custom Weapon Models! Type {purple}!cw {default}to choose your model!"
 		"es"		"Este servidor esta usando Modelos de Armas Personalizados! Escribe {purple}!cw {default}para elegir tu modelo!"
+		"ru"		"Этот сервер использует пользовательские модели оружия! Введите {purple}!cw {default}, чтобы выбрать свою модель!"
 		"zho"		"輸入 {purple}!cw {default}選擇自訂模組!"
 		"da"		"Denne server benytter sig af Custom Weapon Models! Skriv {purple}!cw {default} for at vælge en model!"
 	}
@@ -60,6 +67,7 @@
 	{
 		"en"	"Custom Weapons Menu configuration reloaded"
 		"es"	"Custom Weapons Menu configuracion recargada"
+		"ru"	"Конфигурация меню пользов-ского оружия перезагружена"
 		"zho"	"已重新讀取自訂武器設定"
 		"da"	"Custom Weapons Menu konfiguration er genstartet"
 	}
