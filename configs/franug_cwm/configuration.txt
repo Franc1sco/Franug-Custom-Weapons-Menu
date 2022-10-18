@@ -6,7 +6,7 @@
 		{
 			"model" "models/weaponf/v_animeawp.mdl"
 			"worldmodel" "models/weaponf/w_animeawp.mdl"
-			
+			"skin"	"0"	// If there aren't multiple skins in your model, no need to define "skin". It is 0 by default.
 		}
 	}
 	"weapon_knife"
