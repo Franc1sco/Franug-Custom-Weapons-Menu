@@ -20,7 +20,7 @@
 #include <fpvm_interface>
 #include <multicolors>
 
-#define DATA "3.1"
+#define DATA "3.2"
 
 char sConfig[PLATFORM_MAX_PATH];
 Handle kv, db, array_weapons;
@@ -267,6 +267,7 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 			KvGetString(kv, "model", cwmodel, PLATFORM_MAX_PATH, "none");
 			KvGetString(kv, "worldmodel", cwmodel2, PLATFORM_MAX_PATH, "none");
 			KvGetString(kv, "dropmodel", cwmodel3, PLATFORM_MAX_PATH, "none");
+			int skin = KvGetNum(kv, "skin", 0);
 			if(StrEqual(cwmodel, "none") && StrEqual(cwmodel2, "none") && StrEqual(cwmodel3, "none"))
 			{
 				CPrintToChat(client, " \x04[CW]\x01 %T","Invalid configuration for this model", client);
@@ -277,7 +278,7 @@ public int Menu_Handler2(Menu menu, MenuAction action, int client, int param2)
 				KvGetString(kv, "flag", flag, 8, "");
 				if(HasPermission(client, flag))
 				{
-					FPVMI_SetClientModel(client, client_w[client], !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1, cwmodel3);
+					FPVMI_SetClientModel(client, client_w[client], !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1, cwmodel3, skin);
 					CPrintToChat(client, " \x04[CW]\x01 %T","Now you have a custom weapon model in",client, client_w[client]);
 					
 					
@@ -557,11 +558,12 @@ public tbasico6(Handle:owner, Handle:hndl, const String:error[], any:data)
 	KvGetString(kv, "model", cwmodel, PLATFORM_MAX_PATH, "none");
 	KvGetString(kv, "worldmodel", cwmodel2, PLATFORM_MAX_PATH, "none");
 	KvGetString(kv, "dropmodel", cwmodel3, PLATFORM_MAX_PATH, "none");
+	int skin = KvGetNum(kv, "skin", 0);
 	
 	char flag[8];
 	KvGetString(kv, "flag", flag, 8, "");
 	
-	if(HasPermission(client, flag)) FPVMI_SetClientModel(client, items, !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1, cwmodel3);
+	if(HasPermission(client, flag)) FPVMI_SetClientModel(client, items, !StrEqual(cwmodel, "none")?PrecacheModel(cwmodel):-1, !StrEqual(cwmodel2, "none")?PrecacheModel(cwmodel2):-1, cwmodel3, skin);
 	
 	KvRewind(kv);
 }
