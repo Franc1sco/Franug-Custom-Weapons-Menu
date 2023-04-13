@@ -6,7 +6,7 @@
 		{
 			"model" "models/weaponf/v_animeawp.mdl"
 			"worldmodel" "models/weaponf/w_animeawp.mdl"
-			
+			"dropmodel" "none"
 		}
 	}
 	"weapon_knife"
